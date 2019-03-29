@@ -23,7 +23,7 @@ def Bigram(sentences):
 			if previous_word != SENTENCE_START and word != SENTENCE_END:
 				unique_bigrams.add((previous_word, word))
 			previous_word = word
-	unique__bigram_words = len(unigram_frequencies)
+	#unique__bigram_words = len(unigram_frequencies)
 	return unique_bigrams, unique__bigram_words, bigram_frequencies, unigram_frequencies
 
 def compute_bigram_probabilities(previous_word, word):
@@ -39,9 +39,9 @@ def main():
 
 	print("==============Bigram===============================")
 	a,b,c,d = Bigram(toy_dataset_test)
-	print(a)
-	print(b)
-	print(c)
+	print("Unique Bigrams;",a)
+	print("Bigram Frequencies:",c)
+	print(d)		
 	for sentence in toy_dataset_test:
 		previous_word = None
 		for word in sentence:
@@ -49,6 +49,9 @@ def main():
 				bi_prob = compute_bigram_probabilities(previous_word, word)
 				bigram_word_probabilities[(previous_word, word)] = bigram_word_probabilities.get((previous_word, word),bi_prob)
 			previous_word = word
-	print(bigram_word_probabilities)
-	print(d)		
+
+	for key,val in bigram_word_probabilities.items():
+		print(key,val)
+	
+	
 main()   
