@@ -34,8 +34,8 @@ def compute_bigram_probabilities(previous_word, word):
             bigram_word_probability_numerator) / float(bigram_word_probability_denominator)
 
 def main():
-	toy_dataset = read_sentences_from_file("./sampledata.txt")
-	toy_dataset_test = read_sentences_from_file("./sampletest.txt")
+	data = read_sentences_from_file("./data.txt")
+	test_data = read_sentences_from_file("./test_data.txt")
 
 	print("==============Bigram===============================")
 	a,b,c,d = Bigram(toy_dataset_test)
