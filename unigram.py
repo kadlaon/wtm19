@@ -2,8 +2,8 @@ import re
 import math
 
 # sentence start and end
-SENTENCE_START = "<s>"
-SENTENCE_END = "</s>"
+sentence_start = "<s>"
+sentence_end = "</s>"
 unigram_frequencies = dict()
 word_probabilities = dict()
 
@@ -16,11 +16,11 @@ def Unigram(sentences):
 	for sentence in sentences:
 		for word in sentence:
 			unigram_frequencies[word] = unigram_frequencies.get(word,0) + 1
-			if word != SENTENCE_START and word != SENTENCE_END:
+			if word != sentence_start and word != sentence_end:
 				corpus_length += 1
 	unique_words = len(unigram_frequencies) - 2
 
-	return unigram_frequencies,unique_words,corpus_length,word_probabilities
+	return unigram_frequencies, unique_words, corpus_length, word_probabilities
 
 def compute_unigram_probabilities(word, corpus_len):
 	word_probability_numerator = unigram_frequencies.get(word,0)
@@ -40,7 +40,7 @@ def main():
 	print("corpus_length:",c)
 	for sentence in toy_dataset_test:
 		for word in sentence:
-			if word != SENTENCE_START and word != SENTENCE_END:
+			if word != sentence_start and word != sentence_end:
 				uni_prob = compute_unigram_probabilities(word,c)
 				word_probabilities[word] = word_probabilities.get(word, uni_prob)
 
