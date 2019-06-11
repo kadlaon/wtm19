@@ -3,8 +3,8 @@ import math
 from unigram import unigram_frequencies
 
 # sentence start and end
-SENTENCE_START = "<s>"
-SENTENCE_END = "</s>"
+sentence_start = "<s>"
+sentence_end = "</s>"
 bigram_frequencies = dict()
 bigram_word_probabilities = dict()
 
@@ -20,7 +20,7 @@ def Bigram(sentences):
 		for word in sentence:
 			if previous_word != None:
 				bigram_frequencies[(previous_word, word)] = bigram_frequencies.get((previous_word, word),0) + 1
-			if previous_word != SENTENCE_START and word != SENTENCE_END:
+			if previous_word != sentence_start and word != sentence_end:
 				unique_bigrams.add((previous_word, word))
 			previous_word = word
 	#unique__bigram_words = len(unigram_frequencies)
