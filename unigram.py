@@ -28,8 +28,8 @@ def compute_unigram_probabilities(word, corpus_len):
 	return float(word_probability_numerator) / float(word_probability_denominator)
 
 def main():
-	toy_dataset = read_sentences_from_file("./sampledata.txt")
-	toy_dataset_test = read_sentences_from_file("./sampletest.txt")
+	data = read_sentences_from_file("./data.txt")
+	test_data = read_sentences_from_file("./test_data.txt")
 
 	print(toy_dataset)
 	print(toy_dataset_test)
